@@ -27,6 +27,7 @@ body {
 /* Background Section */
 .background-container {
     position: fixed;
+    /* opacity: 1; */
     top: 0;
     left: 0;
     width: 100%;
@@ -72,11 +73,9 @@ body {
     height: 100%;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 50%;
-    background: repeating-conic-gradient(
-        from 0deg,
-        transparent 0deg 29deg,
-        rgba(255, 255, 255, 0.1) 29deg 31deg
-    );
+    background: repeating-conic-gradient(from 0deg,
+            transparent 0deg 29deg,
+            rgba(255, 255, 255, 0.1) 29deg 31deg);
     mask-image: radial-gradient(circle, transparent 40%, black 100%);
     -webkit-mask-image: radial-gradient(circle, transparent 40%, black 100%);
 }
@@ -90,6 +89,28 @@ body {
     text-align: center;
     padding: 20px;
     position: relative;
+    flex-direction: column;
+}
+
+/* Logo Styles */
+.logo-container {
+    position: absolute;
+    size: 100px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.logo {
+    height: clamp(80px, 15vw, 120px);
+    width: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+    transition: transform 0.4s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .container {
@@ -114,7 +135,7 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
     line-height: 1.1;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .subtitle {
@@ -146,13 +167,13 @@ body {
     padding: 25px 20px;
     border-radius: 20px;
     min-width: 120px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
 }
 
 .time-block:hover {
     transform: translateY(-5px);
-    border-color: rgba(255,255,255,0.4);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .time-block span {
@@ -180,10 +201,11 @@ body {
     padding: 18px 45px;
     border-radius: 50px;
     text-decoration: none;
+    font-family: var(--font-main);
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary svg {
@@ -205,8 +227,13 @@ body {
 
 /* Animations */
 @keyframes zoomOut {
-    from { transform: scale(1.2); }
-    to { transform: scale(1.0); }
+    from {
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1.0);
+    }
 }
 
 .fade-in {
@@ -228,6 +255,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -239,21 +267,29 @@ body {
     .countdown {
         gap: 10px;
     }
-    
+
+    .logo-container {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
     .time-block {
         min-width: 80px;
         padding: 15px 10px;
         border-radius: 15px;
     }
-    
+
     .time-block span {
         font-size: 1.8rem;
     }
-    
+
     .time-block p {
         font-size: 0.6rem;
     }
-    
+
     .btn-primary {
         padding: 15px 35px;
         font-size: 1rem;
