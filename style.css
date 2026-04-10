@@ -21,8 +21,8 @@ body {
     background-color: #000;
     overflow: hidden;
     margin: auto;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 }
 
 /* Background Section */
@@ -96,10 +96,14 @@ body {
 /* Logo Styles */
 .logo-container {
     width: 100%;
+    margin-top: -10vh;
+    /* Slightly pulls the logo upwards */
+    margin-bottom: 5vh;
+    /* Consistent spacing below the logo */
 }
 
 .logo {
-    height: clamp(80px, 15vw, 180px);
+    height: clamp(70px, 8vw, 170px);
     width: auto;
     filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
     transition: transform 0.4s ease;
@@ -118,7 +122,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(20px, 5vh, 40px); /* All gaps are now equal and responsive */
+    gap: clamp(30px, 5vh, 50px);
+    /* All gaps are now equal and responsive */
 }
 
 /* Header Stack for Equal Gaps */
@@ -126,7 +131,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: inherit; /* Inherits the same gap*/
+    gap: inherit;
+    /* Inherits the same gap*/
 }
 
 /* Typography - Removing individual margins to let gap control spacing */
